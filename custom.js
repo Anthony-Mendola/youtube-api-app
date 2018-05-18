@@ -15,11 +15,10 @@ $(document).ready(function() {
 
   function loadVids() {
     $.getJSON(URL, options, function(data){
-      console.log(data)
       var id = data.items[0].snippet.resourceId.videoId;
       mainVid(id);
-      resultsLoop();
-    })
+      resultsLoop(data);
+    });
   }
 
   function mainVid(id) {
@@ -27,18 +26,32 @@ $(document).ready(function() {
     `);
   }
 
-  function resultsLoop() {
+  function resultsLoop(data) {
 
-    $('main').html(`<article>
-      <img src="https://i.imgur.com/BhRFjf4.jpg" alt="" class="thumb">
+    $.each(data.items, function(i, item) {
 
-      <div class="details">
-        <h4>Title</h4>
-        <p>Description</p>
-      </div>
-    </article>
-      `)
+      var thumb = item.snippet.thumbnails.medium.url;
+      var title = item.snippet.title;
+      var desc = item.snippet.description.substring(0, 111);
+      var vid = item.snippet.resourceId.videoId;
 
-  }
+      $('main').append(`
+        <article class="item" data-key="${vid}">
+        <img src="${thumb}" alt="" class="thumb">
 
+        <div class="details">
+          <h4>${title}</h4>
+          <p>${desc}</p>
+        </div>
+      </article>
+        `);
+
+        });
+      }
+
+      $('main').on('click', 'article', function() {
+        var id = $(this).attr('data-key');
+      mainVid(id);
+
+      });
 });
