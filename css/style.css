@@ -37,7 +37,12 @@ section {
 article {
   display: flex;
   align-items: center;
-  padding: 8px 12px; }
+  padding: 8px 12px;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin: 0 auto; }
+  article:hover {
+    border: 2px solid #ff9999; }
 
 .details {
   padding: 8px 22px; }
@@ -46,6 +51,7 @@ main {
   padding: 370px 18px 10px; }
 
 .thumb {
-  height: 70px; }
+  height: 70px;
+  border-radius: 4px; }
 
 /*# sourceMappingURL=style.css.map */
