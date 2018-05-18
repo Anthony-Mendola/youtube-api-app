@@ -1,2 +1,2 @@
 # youtube-api-app
-YouTube app using Youtube API, HTML, CSS, &amp; JS
+YouTube app using Youtube API, HTML, SCSS, &amp; JS
