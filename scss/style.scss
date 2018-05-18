@@ -11,6 +11,8 @@ h4 {
 
 p {
   @include font-base;
+  color: grey;
+  font-size: 0.7rem;
 }
 
 body {
@@ -42,6 +44,12 @@ section {
 
 article {
   display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.details {
+  padding: 8px 22px;
 }
 
 main {
